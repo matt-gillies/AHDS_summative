@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+article_download          1              1              1
+journal_formatting        1              1              1
+total                     3              1              1
+
+Select jobs to execute...
+
+[Wed Dec  3 15:25:05 2025]
+rule article_download:
+    input: ../data/raw/IDs/IDs.xml
+    output: ../data/raw/Articles
+    jobid: 2
+    resources: tmpdir=/tmp
+
+[Wed Dec  3 15:25:26 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Wed Dec  3 15:25:26 2025]
+rule journal_formatting:
+    input: ../data/raw/Articles
+    output: ../data/clean/journal_data_cleaned.tsv
+    jobid: 1
+    resources: tmpdir=/tmp
+
+[Wed Dec  3 15:25:28 2025]
+Error in rule journal_formatting:
+    jobid: 1
+    output: ../data/clean/journal_data_cleaned.tsv
+    shell:
+        
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/.snakemake/log/2025-12-03T152503.513997.snakemake.log

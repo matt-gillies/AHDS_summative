@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+article_download          1              1              1
+journal_formatting        1              1              1
+list_download             1              1              1
+total                     4              1              1
+
+Select jobs to execute...
+
+[Wed Dec  3 15:20:19 2025]
+rule list_download:
+    output: ../data/raw/IDs/IDs.xml
+    jobid: 3
+    resources: tmpdir=/tmp
+
+[Wed Dec  3 15:20:19 2025]
+Error in rule list_download:
+    jobid: 3
+    output: ../data/raw/IDs/IDs.xml
+    shell:
+        bash 1-ID_list_download.sh ../data/raw/IDs/IDs.xml
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/.snakemake/log/2025-12-03T152019.197539.snakemake.log
