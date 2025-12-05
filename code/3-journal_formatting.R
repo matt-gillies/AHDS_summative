@@ -4,7 +4,7 @@ library(tidyverse)
 library(xml2)
 
 
-file_path <- "../data/raw/Articles"
+file_path <- "../data/raw/Articles/individual"
 
 journal_names <- list.files(file_path, pattern = "*.xml", full.names = TRUE)
 

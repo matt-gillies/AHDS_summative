@@ -4,33 +4,35 @@ rule all:
     input:
         "../data/clean/journal_data_cleaned.tsv"
 
-
-rule list_download:
+checkpoint list_download:
     output:
-        "../data/raw/IDs/IDs.xml"
+        directory("../data/raw/PMIDs/ID_batches")
     shell:
-        "bash 1-ID_list_downl.sh {output}"
-
+        """
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh {config[test]}
+        """
 
 rule article_download:
     input:
-        "../data/raw/IDs/IDs.xml"
+        "../data/raw/PMIDs/ID_batches/batch_{id}"
     output:
-        directory("../data/raw/Articles")
-    
-    params:
-        test=config["test"]
-    
+        "../data/raw/Articles/individual/batch_{id}.done"
     shell:
         """
-        mkdir -p ../data/raw/Articles
-        bash 2-journal_downl.sh
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh {input}
+        touch {output}
         """
-
 
 rule journal_formatting:
     input:
-        "../data/raw/Articles"
+        "../data/raw/PMIDs/ID_batches",
+        lambda wildcards: expand(
+            "../data/raw/Articles/individual/batch_{id}.done",
+            id=glob_wildcards("../data/raw/PMIDs/ID_batches/batch_{id}").id
+        )
     output:
         "../data/clean/journal_data_cleaned.tsv"
     shell:

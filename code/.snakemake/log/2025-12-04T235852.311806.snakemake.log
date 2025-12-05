@@ -1,0 +1,242 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+journal_formatting        1              1              1
+list_download             1              1              1
+total                     3              1              1
+
+Select jobs to execute...
+
+[Thu Dec  4 23:58:54 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 2
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh false
+        
+[Thu Dec  4 23:58:57 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:03 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_an
+    output: ../data/raw/Articles/individual/batch_an.done
+    jobid: 17
+    reason: Missing output files: ../data/raw/Articles/individual/batch_an.done
+    wildcards: id=an
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_an
+        touch ../data/raw/Articles/individual/batch_an.done
+        
+
+[Thu Dec  4 23:59:03 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cv
+    output: ../data/raw/Articles/individual/batch_cv.done
+    jobid: 77
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cv.done
+    wildcards: id=cv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cv
+        touch ../data/raw/Articles/individual/batch_cv.done
+        
+
+[Thu Dec  4 23:59:03 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cr
+    output: ../data/raw/Articles/individual/batch_cr.done
+    jobid: 73
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cr.done
+    wildcards: id=cr
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cr
+        touch ../data/raw/Articles/individual/batch_cr.done
+        
+[Thu Dec  4 23:59:18 2025]
+Finished job 77.
+2 of 134 steps (1%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:18 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_et
+    output: ../data/raw/Articles/individual/batch_et.done
+    jobid: 127
+    reason: Missing output files: ../data/raw/Articles/individual/batch_et.done
+    wildcards: id=et
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_et
+        touch ../data/raw/Articles/individual/batch_et.done
+        
+[Thu Dec  4 23:59:19 2025]
+Finished job 17.
+3 of 134 steps (2%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cy
+    output: ../data/raw/Articles/individual/batch_cy.done
+    jobid: 80
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cy.done
+    wildcards: id=cy
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cy
+        touch ../data/raw/Articles/individual/batch_cy.done
+        
+[Thu Dec  4 23:59:19 2025]
+Finished job 73.
+4 of 134 steps (3%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bu
+    output: ../data/raw/Articles/individual/batch_bu.done
+    jobid: 50
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bu.done
+    wildcards: id=bu
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bu
+        touch ../data/raw/Articles/individual/batch_bu.done
+        
+[Thu Dec  4 23:59:28 2025]
+Finished job 127.
+5 of 134 steps (4%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:28 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ep
+    output: ../data/raw/Articles/individual/batch_ep.done
+    jobid: 123
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ep.done
+    wildcards: id=ep
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ep
+        touch ../data/raw/Articles/individual/batch_ep.done
+        
+[Thu Dec  4 23:59:31 2025]
+Finished job 80.
+6 of 134 steps (4%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:31 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bd
+    output: ../data/raw/Articles/individual/batch_bd.done
+    jobid: 33
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bd.done
+    wildcards: id=bd
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bd
+        touch ../data/raw/Articles/individual/batch_bd.done
+        
+[Thu Dec  4 23:59:32 2025]
+Finished job 50.
+7 of 134 steps (5%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:59:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bq
+    output: ../data/raw/Articles/individual/batch_bq.done
+    jobid: 46
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bq.done
+    wildcards: id=bq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bq
+        touch ../data/raw/Articles/individual/batch_bq.done
+        
+Terminating processes on user request, this might take some time.
+[Thu Dec  4 23:59:39 2025]
+[Thu Dec  4 23:59:39 2025]
+Error in rule article_download:
+    jobid: 33
+    input: ../data/raw/PMIDs/ID_batches/batch_bd
+    output: ../data/raw/Articles/individual/batch_bd.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bd
+        touch ../data/raw/Articles/individual/batch_bd.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule article_download:
+    jobid: 123
+    input: ../data/raw/PMIDs/ID_batches/batch_ep
+    output: ../data/raw/Articles/individual/batch_ep.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ep
+        touch ../data/raw/Articles/individual/batch_ep.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Dec  4 23:59:39 2025]
+Error in rule article_download:
+    jobid: 46
+    input: ../data/raw/PMIDs/ID_batches/batch_bq
+    output: ../data/raw/Articles/individual/batch_bq.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bq
+        touch ../data/raw/Articles/individual/batch_bq.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-12-04T235852.311806.snakemake.log

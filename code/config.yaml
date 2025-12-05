@@ -1,6 +1,7 @@
 cluster-cancel: scancel %j
+
 cluster:
-  sbatch
+  sbatch: |
     --partition={resources.slurm_partition}
     --account={resources.slurm_account}
     --nodes={resources.nodes}
@@ -8,13 +9,15 @@ cluster:
     --cpus-per-task={resources.cpus_per_task}
     --time={resources.time}
     --mem={resources.mem_mb}
+
 default-resources:
-  - slurm_partition=teach_cpu
-  - slurm_account=sscm037184
-  - mem_mb=100
-  - time="00:30:00"
-  - ntasks=1
-  - nodes=1
+  slurm_partition: teach_cpu
+  slurm_account: sscm037184
+  mem_mb: 100
+  time: "00:30:00"
+  ntasks: 1
+  nodes: 1
+
 jobs: 4
 printshellcmds: True
 scheduler: greedy
@@ -26,4 +29,3 @@ local-cores: 1
 latency-wait: 10
 keep-going: True
 rerun-incomplete: True
-printshellcmds: True

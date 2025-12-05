@@ -1,0 +1,122 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+journal_formatting        1              1              1
+list_download             1              1              1
+total                     3              1              1
+
+Select jobs to execute...
+
+[Thu Dec  4 23:40:11 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 2
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh false
+        
+[Thu Dec  4 23:40:13 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:40:17 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_an
+    output: ../data/raw/Articles/individual/batch_an.done
+    jobid: 17
+    reason: Missing output files: ../data/raw/Articles/individual/batch_an.done
+    wildcards: id=an
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_an
+        touch ../data/raw/Articles/individual/batch_an.done
+        
+
+[Thu Dec  4 23:40:17 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cv
+    output: ../data/raw/Articles/individual/batch_cv.done
+    jobid: 77
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cv.done
+    wildcards: id=cv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cv
+        touch ../data/raw/Articles/individual/batch_cv.done
+        
+
+[Thu Dec  4 23:40:17 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cr
+    output: ../data/raw/Articles/individual/batch_cr.done
+    jobid: 73
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cr.done
+    wildcards: id=cr
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cr
+        touch ../data/raw/Articles/individual/batch_cr.done
+        
+Terminating processes on user request, this might take some time.
+[Thu Dec  4 23:40:25 2025]
+Error in rule article_download:
+    jobid: 73
+    input: ../data/raw/PMIDs/ID_batches/batch_cr
+    output: ../data/raw/Articles/individual/batch_cr.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cr
+        touch ../data/raw/Articles/individual/batch_cr.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Dec  4 23:40:25 2025]
+Error in rule article_download:
+    jobid: 77
+    input: ../data/raw/PMIDs/ID_batches/batch_cv
+    output: ../data/raw/Articles/individual/batch_cv.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cv
+        touch ../data/raw/Articles/individual/batch_cv.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Dec  4 23:40:25 2025]
+Error in rule article_download:
+    jobid: 17
+    input: ../data/raw/PMIDs/ID_batches/batch_an
+    output: ../data/raw/Articles/individual/batch_an.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_an
+        touch ../data/raw/Articles/individual/batch_an.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-12-04T234010.056868.snakemake.log

@@ -1,6 +1,6 @@
-test="true"
+test=$1
 
-mkdir "../data/raw/PMIDs"
+
 
 #Download article ID list
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22gaming+disorder%22+OR+%22smartphone+addiction%22+OR+%22internet+addiction%22+OR+%22social+media+addiction%22&retmax=10000" > ../data/raw/PMIDs/IDs.xml

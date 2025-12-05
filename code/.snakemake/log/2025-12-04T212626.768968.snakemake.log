@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 20 of /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/Snakefile:
+Wildcards in input files cannot be determined from output files:
+'number'

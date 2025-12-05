@@ -1,0 +1,1782 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+journal_formatting        1              1              1
+list_download             1              1              1
+total                     3              1              1
+
+Select jobs to execute...
+
+[Thu Dec  4 23:49:26 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 2
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh false
+        
+[Thu Dec  4 23:49:27 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_an
+    output: ../data/raw/Articles/individual/batch_an.done
+    jobid: 17
+    reason: Missing output files: ../data/raw/Articles/individual/batch_an.done
+    wildcards: id=an
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_an
+        touch ../data/raw/Articles/individual/batch_an.done
+        
+
+[Thu Dec  4 23:49:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cv
+    output: ../data/raw/Articles/individual/batch_cv.done
+    jobid: 77
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cv.done
+    wildcards: id=cv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cv
+        touch ../data/raw/Articles/individual/batch_cv.done
+        
+
+[Thu Dec  4 23:49:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cr
+    output: ../data/raw/Articles/individual/batch_cr.done
+    jobid: 73
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cr.done
+    wildcards: id=cr
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cr
+        touch ../data/raw/Articles/individual/batch_cr.done
+        
+[Thu Dec  4 23:49:42 2025]
+Finished job 77.
+2 of 134 steps (1%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:42 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_et
+    output: ../data/raw/Articles/individual/batch_et.done
+    jobid: 127
+    reason: Missing output files: ../data/raw/Articles/individual/batch_et.done
+    wildcards: id=et
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_et
+        touch ../data/raw/Articles/individual/batch_et.done
+        
+[Thu Dec  4 23:49:43 2025]
+Finished job 17.
+3 of 134 steps (2%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:43 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cy
+    output: ../data/raw/Articles/individual/batch_cy.done
+    jobid: 80
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cy.done
+    wildcards: id=cy
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cy
+        touch ../data/raw/Articles/individual/batch_cy.done
+        
+[Thu Dec  4 23:49:43 2025]
+Finished job 73.
+4 of 134 steps (3%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:43 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ec
+    output: ../data/raw/Articles/individual/batch_ec.done
+    jobid: 110
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ec.done
+    wildcards: id=ec
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ec
+        touch ../data/raw/Articles/individual/batch_ec.done
+        
+[Thu Dec  4 23:49:49 2025]
+Finished job 127.
+5 of 134 steps (4%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ep
+    output: ../data/raw/Articles/individual/batch_ep.done
+    jobid: 123
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ep.done
+    wildcards: id=ep
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ep
+        touch ../data/raw/Articles/individual/batch_ep.done
+        
+[Thu Dec  4 23:49:51 2025]
+Finished job 110.
+6 of 134 steps (4%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:51 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bd
+    output: ../data/raw/Articles/individual/batch_bd.done
+    jobid: 33
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bd.done
+    wildcards: id=bd
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bd
+        touch ../data/raw/Articles/individual/batch_bd.done
+        
+[Thu Dec  4 23:49:52 2025]
+Finished job 80.
+7 of 134 steps (5%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:52 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bq
+    output: ../data/raw/Articles/individual/batch_bq.done
+    jobid: 46
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bq.done
+    wildcards: id=bq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bq
+        touch ../data/raw/Articles/individual/batch_bq.done
+        
+[Thu Dec  4 23:49:57 2025]
+Finished job 123.
+8 of 134 steps (6%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:49:57 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_am
+    output: ../data/raw/Articles/individual/batch_am.done
+    jobid: 16
+    reason: Missing output files: ../data/raw/Articles/individual/batch_am.done
+    wildcards: id=am
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_am
+        touch ../data/raw/Articles/individual/batch_am.done
+        
+[Thu Dec  4 23:50:01 2025]
+Finished job 33.
+9 of 134 steps (7%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:01 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_az
+    output: ../data/raw/Articles/individual/batch_az.done
+    jobid: 29
+    reason: Missing output files: ../data/raw/Articles/individual/batch_az.done
+    wildcards: id=az
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_az
+        touch ../data/raw/Articles/individual/batch_az.done
+        
+[Thu Dec  4 23:50:03 2025]
+Finished job 46.
+10 of 134 steps (7%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:03 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dh
+    output: ../data/raw/Articles/individual/batch_dh.done
+    jobid: 89
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dh.done
+    wildcards: id=dh
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dh
+        touch ../data/raw/Articles/individual/batch_dh.done
+        
+[Thu Dec  4 23:50:08 2025]
+Finished job 16.
+11 of 134 steps (8%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:08 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bl
+    output: ../data/raw/Articles/individual/batch_bl.done
+    jobid: 41
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bl.done
+    wildcards: id=bl
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bl
+        touch ../data/raw/Articles/individual/batch_bl.done
+        
+[Thu Dec  4 23:50:12 2025]
+Finished job 29.
+12 of 134 steps (9%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:12 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ai
+    output: ../data/raw/Articles/individual/batch_ai.done
+    jobid: 12
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ai.done
+    wildcards: id=ai
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ai
+        touch ../data/raw/Articles/individual/batch_ai.done
+        
+[Thu Dec  4 23:50:12 2025]
+Finished job 89.
+13 of 134 steps (10%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:12 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ey
+    output: ../data/raw/Articles/individual/batch_ey.done
+    jobid: 132
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ey.done
+    wildcards: id=ey
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ey
+        touch ../data/raw/Articles/individual/batch_ey.done
+        
+[Thu Dec  4 23:50:18 2025]
+Finished job 41.
+14 of 134 steps (10%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:18 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bm
+    output: ../data/raw/Articles/individual/batch_bm.done
+    jobid: 42
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bm.done
+    wildcards: id=bm
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bm
+        touch ../data/raw/Articles/individual/batch_bm.done
+        
+[Thu Dec  4 23:50:19 2025]
+Finished job 132.
+15 of 134 steps (11%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bz
+    output: ../data/raw/Articles/individual/batch_bz.done
+    jobid: 55
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bz.done
+    wildcards: id=bz
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bz
+        touch ../data/raw/Articles/individual/batch_bz.done
+        
+[Thu Dec  4 23:50:23 2025]
+Finished job 12.
+16 of 134 steps (12%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:23 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_av
+    output: ../data/raw/Articles/individual/batch_av.done
+    jobid: 25
+    reason: Missing output files: ../data/raw/Articles/individual/batch_av.done
+    wildcards: id=av
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_av
+        touch ../data/raw/Articles/individual/batch_av.done
+        
+[Thu Dec  4 23:50:28 2025]
+Finished job 42.
+17 of 134 steps (13%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:28 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bi
+    output: ../data/raw/Articles/individual/batch_bi.done
+    jobid: 38
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bi.done
+    wildcards: id=bi
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bi
+        touch ../data/raw/Articles/individual/batch_bi.done
+        
+[Thu Dec  4 23:50:30 2025]
+Finished job 55.
+18 of 134 steps (13%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:30 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dq
+    output: ../data/raw/Articles/individual/batch_dq.done
+    jobid: 98
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dq.done
+    wildcards: id=dq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dq
+        touch ../data/raw/Articles/individual/batch_dq.done
+        
+[Thu Dec  4 23:50:33 2025]
+Finished job 25.
+19 of 134 steps (14%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:33 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cm
+    output: ../data/raw/Articles/individual/batch_cm.done
+    jobid: 68
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cm.done
+    wildcards: id=cm
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cm
+        touch ../data/raw/Articles/individual/batch_cm.done
+        
+[Thu Dec  4 23:50:39 2025]
+Finished job 98.
+20 of 134 steps (15%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:39 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ar
+    output: ../data/raw/Articles/individual/batch_ar.done
+    jobid: 21
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ar.done
+    wildcards: id=ar
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ar
+        touch ../data/raw/Articles/individual/batch_ar.done
+        
+[Thu Dec  4 23:50:39 2025]
+Finished job 38.
+21 of 134 steps (16%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:39 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bv
+    output: ../data/raw/Articles/individual/batch_bv.done
+    jobid: 51
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bv.done
+    wildcards: id=bv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bv
+        touch ../data/raw/Articles/individual/batch_bv.done
+        
+[Thu Dec  4 23:50:43 2025]
+Finished job 68.
+22 of 134 steps (16%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:43 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ed
+    output: ../data/raw/Articles/individual/batch_ed.done
+    jobid: 111
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ed.done
+    wildcards: id=ed
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ed
+        touch ../data/raw/Articles/individual/batch_ed.done
+        
+[Thu Dec  4 23:50:49 2025]
+Finished job 21.
+23 of 134 steps (17%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ci
+    output: ../data/raw/Articles/individual/batch_ci.done
+    jobid: 64
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ci.done
+    wildcards: id=ci
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ci
+        touch ../data/raw/Articles/individual/batch_ci.done
+        
+[Thu Dec  4 23:50:49 2025]
+Finished job 51.
+24 of 134 steps (18%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:50 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_be
+    output: ../data/raw/Articles/individual/batch_be.done
+    jobid: 34
+    reason: Missing output files: ../data/raw/Articles/individual/batch_be.done
+    wildcards: id=be
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_be
+        touch ../data/raw/Articles/individual/batch_be.done
+        
+[Thu Dec  4 23:50:52 2025]
+Finished job 111.
+25 of 134 steps (19%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:52 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ex
+    output: ../data/raw/Articles/individual/batch_ex.done
+    jobid: 131
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ex.done
+    wildcards: id=ex
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ex
+        touch ../data/raw/Articles/individual/batch_ex.done
+        
+[Thu Dec  4 23:50:58 2025]
+Finished job 64.
+26 of 134 steps (19%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:58 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_by
+    output: ../data/raw/Articles/individual/batch_by.done
+    jobid: 54
+    reason: Missing output files: ../data/raw/Articles/individual/batch_by.done
+    wildcards: id=by
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_by
+        touch ../data/raw/Articles/individual/batch_by.done
+        
+[Thu Dec  4 23:50:59 2025]
+Finished job 131.
+27 of 134 steps (20%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:59 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ba
+    output: ../data/raw/Articles/individual/batch_ba.done
+    jobid: 30
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ba.done
+    wildcards: id=ba
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ba
+        touch ../data/raw/Articles/individual/batch_ba.done
+        
+[Thu Dec  4 23:50:59 2025]
+Finished job 34.
+28 of 134 steps (21%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:50:59 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ce
+    output: ../data/raw/Articles/individual/batch_ce.done
+    jobid: 60
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ce.done
+    wildcards: id=ce
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ce
+        touch ../data/raw/Articles/individual/batch_ce.done
+        
+[Thu Dec  4 23:51:08 2025]
+Finished job 54.
+29 of 134 steps (22%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:08 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aj
+    output: ../data/raw/Articles/individual/batch_aj.done
+    jobid: 13
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aj.done
+    wildcards: id=aj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aj
+        touch ../data/raw/Articles/individual/batch_aj.done
+        
+[Thu Dec  4 23:51:09 2025]
+Finished job 30.
+30 of 134 steps (22%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:09 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ez
+    output: ../data/raw/Articles/individual/batch_ez.done
+    jobid: 133
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ez.done
+    wildcards: id=ez
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ez
+        touch ../data/raw/Articles/individual/batch_ez.done
+        
+[Thu Dec  4 23:51:10 2025]
+Finished job 60.
+31 of 134 steps (23%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:10 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bn
+    output: ../data/raw/Articles/individual/batch_bn.done
+    jobid: 43
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bn.done
+    wildcards: id=bn
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bn
+        touch ../data/raw/Articles/individual/batch_bn.done
+        
+[Thu Dec  4 23:51:15 2025]
+Finished job 133.
+32 of 134 steps (24%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:15 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dv
+    output: ../data/raw/Articles/individual/batch_dv.done
+    jobid: 103
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dv.done
+    wildcards: id=dv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dv
+        touch ../data/raw/Articles/individual/batch_dv.done
+        
+[Thu Dec  4 23:51:19 2025]
+Finished job 13.
+33 of 134 steps (25%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ca
+    output: ../data/raw/Articles/individual/batch_ca.done
+    jobid: 56
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ca.done
+    wildcards: id=ca
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ca
+        touch ../data/raw/Articles/individual/batch_ca.done
+        
+[Thu Dec  4 23:51:20 2025]
+Finished job 43.
+34 of 134 steps (25%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:20 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_em
+    output: ../data/raw/Articles/individual/batch_em.done
+    jobid: 120
+    reason: Missing output files: ../data/raw/Articles/individual/batch_em.done
+    wildcards: id=em
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_em
+        touch ../data/raw/Articles/individual/batch_em.done
+        
+[Thu Dec  4 23:51:24 2025]
+Finished job 103.
+35 of 134 steps (26%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:24 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ei
+    output: ../data/raw/Articles/individual/batch_ei.done
+    jobid: 116
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ei.done
+    wildcards: id=ei
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ei
+        touch ../data/raw/Articles/individual/batch_ei.done
+        
+[Thu Dec  4 23:51:29 2025]
+Finished job 120.
+36 of 134 steps (27%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:29 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aw
+    output: ../data/raw/Articles/individual/batch_aw.done
+    jobid: 26
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aw.done
+    wildcards: id=aw
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aw
+        touch ../data/raw/Articles/individual/batch_aw.done
+        
+[Thu Dec  4 23:51:30 2025]
+Finished job 56.
+37 of 134 steps (28%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:30 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_de
+    output: ../data/raw/Articles/individual/batch_de.done
+    jobid: 86
+    reason: Missing output files: ../data/raw/Articles/individual/batch_de.done
+    wildcards: id=de
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_de
+        touch ../data/raw/Articles/individual/batch_de.done
+        
+[Thu Dec  4 23:51:34 2025]
+Finished job 116.
+38 of 134 steps (28%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:34 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_di
+    output: ../data/raw/Articles/individual/batch_di.done
+    jobid: 90
+    reason: Missing output files: ../data/raw/Articles/individual/batch_di.done
+    wildcards: id=di
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_di
+        touch ../data/raw/Articles/individual/batch_di.done
+        
+[Thu Dec  4 23:51:54 2025]
+Finished job 26.
+39 of 134 steps (29%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:51:55 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bj
+    output: ../data/raw/Articles/individual/batch_bj.done
+    jobid: 39
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bj.done
+    wildcards: id=bj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bj
+        touch ../data/raw/Articles/individual/batch_bj.done
+        
+[Thu Dec  4 23:52:00 2025]
+Finished job 86.
+40 of 134 steps (30%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:00 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dr
+    output: ../data/raw/Articles/individual/batch_dr.done
+    jobid: 99
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dr.done
+    wildcards: id=dr
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dr
+        touch ../data/raw/Articles/individual/batch_dr.done
+        
+[Thu Dec  4 23:52:04 2025]
+Finished job 90.
+41 of 134 steps (31%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:04 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ev
+    output: ../data/raw/Articles/individual/batch_ev.done
+    jobid: 129
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ev.done
+    wildcards: id=ev
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ev
+        touch ../data/raw/Articles/individual/batch_ev.done
+        
+[Thu Dec  4 23:52:09 2025]
+Finished job 39.
+42 of 134 steps (31%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:09 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_eg
+    output: ../data/raw/Articles/individual/batch_eg.done
+    jobid: 114
+    reason: Missing output files: ../data/raw/Articles/individual/batch_eg.done
+    wildcards: id=eg
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_eg
+        touch ../data/raw/Articles/individual/batch_eg.done
+        
+[Thu Dec  4 23:52:10 2025]
+Finished job 99.
+43 of 134 steps (32%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:10 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_au
+    output: ../data/raw/Articles/individual/batch_au.done
+    jobid: 24
+    reason: Missing output files: ../data/raw/Articles/individual/batch_au.done
+    wildcards: id=au
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_au
+        touch ../data/raw/Articles/individual/batch_au.done
+        
+[Thu Dec  4 23:52:13 2025]
+Finished job 129.
+44 of 134 steps (33%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:13 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dc
+    output: ../data/raw/Articles/individual/batch_dc.done
+    jobid: 84
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dc.done
+    wildcards: id=dc
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dc
+        touch ../data/raw/Articles/individual/batch_dc.done
+        
+[Thu Dec  4 23:52:18 2025]
+Finished job 114.
+45 of 134 steps (34%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:18 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dp
+    output: ../data/raw/Articles/individual/batch_dp.done
+    jobid: 97
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dp.done
+    wildcards: id=dp
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dp
+        touch ../data/raw/Articles/individual/batch_dp.done
+        
+[Thu Dec  4 23:52:22 2025]
+Finished job 24.
+46 of 134 steps (34%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:22 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_da
+    output: ../data/raw/Articles/individual/batch_da.done
+    jobid: 82
+    reason: Missing output files: ../data/raw/Articles/individual/batch_da.done
+    wildcards: id=da
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_da
+        touch ../data/raw/Articles/individual/batch_da.done
+        
+[Thu Dec  4 23:52:24 2025]
+Finished job 84.
+47 of 134 steps (35%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:24 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bw
+    output: ../data/raw/Articles/individual/batch_bw.done
+    jobid: 52
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bw.done
+    wildcards: id=bw
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bw
+        touch ../data/raw/Articles/individual/batch_bw.done
+        
+[Thu Dec  4 23:52:28 2025]
+Finished job 97.
+48 of 134 steps (36%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:28 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ee
+    output: ../data/raw/Articles/individual/batch_ee.done
+    jobid: 112
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ee.done
+    wildcards: id=ee
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ee
+        touch ../data/raw/Articles/individual/batch_ee.done
+        
+[Thu Dec  4 23:52:33 2025]
+Finished job 82.
+49 of 134 steps (37%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:33 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ab
+    output: ../data/raw/Articles/individual/batch_ab.done
+    jobid: 5
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ab.done
+    wildcards: id=ab
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ab
+        touch ../data/raw/Articles/individual/batch_ab.done
+        
+[Thu Dec  4 23:52:35 2025]
+Finished job 52.
+50 of 134 steps (37%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:35 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_as
+    output: ../data/raw/Articles/individual/batch_as.done
+    jobid: 22
+    reason: Missing output files: ../data/raw/Articles/individual/batch_as.done
+    wildcards: id=as
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_as
+        touch ../data/raw/Articles/individual/batch_as.done
+        
+[Thu Dec  4 23:52:38 2025]
+Finished job 112.
+51 of 134 steps (38%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:38 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cj
+    output: ../data/raw/Articles/individual/batch_cj.done
+    jobid: 65
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cj.done
+    wildcards: id=cj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cj
+        touch ../data/raw/Articles/individual/batch_cj.done
+        
+[Thu Dec  4 23:52:46 2025]
+Finished job 5.
+52 of 134 steps (39%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:46 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_er
+    output: ../data/raw/Articles/individual/batch_er.done
+    jobid: 125
+    reason: Missing output files: ../data/raw/Articles/individual/batch_er.done
+    wildcards: id=er
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_er
+        touch ../data/raw/Articles/individual/batch_er.done
+        
+[Thu Dec  4 23:52:48 2025]
+Finished job 22.
+53 of 134 steps (40%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:48 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bf
+    output: ../data/raw/Articles/individual/batch_bf.done
+    jobid: 35
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bf.done
+    wildcards: id=bf
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bf
+        touch ../data/raw/Articles/individual/batch_bf.done
+        
+[Thu Dec  4 23:52:49 2025]
+Finished job 65.
+54 of 134 steps (40%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aq
+    output: ../data/raw/Articles/individual/batch_aq.done
+    jobid: 20
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aq.done
+    wildcards: id=aq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aq
+        touch ../data/raw/Articles/individual/batch_aq.done
+        
+[Thu Dec  4 23:52:57 2025]
+Finished job 125.
+55 of 134 steps (41%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:52:57 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dn
+    output: ../data/raw/Articles/individual/batch_dn.done
+    jobid: 95
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dn.done
+    wildcards: id=dn
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dn
+        touch ../data/raw/Articles/individual/batch_dn.done
+        
+[Thu Dec  4 23:53:02 2025]
+Finished job 35.
+56 of 134 steps (42%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:02 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bu
+    output: ../data/raw/Articles/individual/batch_bu.done
+    jobid: 50
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bu.done
+    wildcards: id=bu
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bu
+        touch ../data/raw/Articles/individual/batch_bu.done
+        
+[Thu Dec  4 23:53:02 2025]
+Finished job 20.
+57 of 134 steps (43%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:02 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bt
+    output: ../data/raw/Articles/individual/batch_bt.done
+    jobid: 49
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bt.done
+    wildcards: id=bt
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bt
+        touch ../data/raw/Articles/individual/batch_bt.done
+        
+[Thu Dec  4 23:53:10 2025]
+Finished job 95.
+58 of 134 steps (43%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:10 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_es
+    output: ../data/raw/Articles/individual/batch_es.done
+    jobid: 126
+    reason: Missing output files: ../data/raw/Articles/individual/batch_es.done
+    wildcards: id=es
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_es
+        touch ../data/raw/Articles/individual/batch_es.done
+        
+[Thu Dec  4 23:53:13 2025]
+Finished job 49.
+59 of 134 steps (44%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:13 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_eb
+    output: ../data/raw/Articles/individual/batch_eb.done
+    jobid: 109
+    reason: Missing output files: ../data/raw/Articles/individual/batch_eb.done
+    wildcards: id=eb
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_eb
+        touch ../data/raw/Articles/individual/batch_eb.done
+        
+[Thu Dec  4 23:53:14 2025]
+Finished job 50.
+60 of 134 steps (45%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aa
+    output: ../data/raw/Articles/individual/batch_aa.done
+    jobid: 4
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aa.done
+    wildcards: id=aa
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aa
+        touch ../data/raw/Articles/individual/batch_aa.done
+        
+[Thu Dec  4 23:53:22 2025]
+Finished job 126.
+61 of 134 steps (46%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:22 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_eq
+    output: ../data/raw/Articles/individual/batch_eq.done
+    jobid: 124
+    reason: Missing output files: ../data/raw/Articles/individual/batch_eq.done
+    wildcards: id=eq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_eq
+        touch ../data/raw/Articles/individual/batch_eq.done
+        
+[Thu Dec  4 23:53:25 2025]
+Finished job 109.
+62 of 134 steps (46%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:25 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_do
+    output: ../data/raw/Articles/individual/batch_do.done
+    jobid: 96
+    reason: Missing output files: ../data/raw/Articles/individual/batch_do.done
+    wildcards: id=do
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_do
+        touch ../data/raw/Articles/individual/batch_do.done
+        
+[Thu Dec  4 23:53:25 2025]
+Finished job 4.
+63 of 134 steps (47%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:26 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ap
+    output: ../data/raw/Articles/individual/batch_ap.done
+    jobid: 19
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ap.done
+    wildcards: id=ap
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ap
+        touch ../data/raw/Articles/individual/batch_ap.done
+        
+[Thu Dec  4 23:53:32 2025]
+Finished job 124.
+64 of 134 steps (48%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_eo
+    output: ../data/raw/Articles/individual/batch_eo.done
+    jobid: 122
+    reason: Missing output files: ../data/raw/Articles/individual/batch_eo.done
+    wildcards: id=eo
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_eo
+        touch ../data/raw/Articles/individual/batch_eo.done
+        
+[Thu Dec  4 23:53:37 2025]
+Finished job 96.
+65 of 134 steps (49%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:37 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bb
+    output: ../data/raw/Articles/individual/batch_bb.done
+    jobid: 31
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bb.done
+    wildcards: id=bb
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bb
+        touch ../data/raw/Articles/individual/batch_bb.done
+        
+[Thu Dec  4 23:53:37 2025]
+Finished job 19.
+66 of 134 steps (49%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:37 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cg
+    output: ../data/raw/Articles/individual/batch_cg.done
+    jobid: 62
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cg.done
+    wildcards: id=cg
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cg
+        touch ../data/raw/Articles/individual/batch_cg.done
+        
+[Thu Dec  4 23:53:44 2025]
+Finished job 122.
+67 of 134 steps (50%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:44 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dj
+    output: ../data/raw/Articles/individual/batch_dj.done
+    jobid: 91
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dj.done
+    wildcards: id=dj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dj
+        touch ../data/raw/Articles/individual/batch_dj.done
+        
+[Thu Dec  4 23:53:48 2025]
+Finished job 31.
+68 of 134 steps (51%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:48 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dk
+    output: ../data/raw/Articles/individual/batch_dk.done
+    jobid: 92
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dk.done
+    wildcards: id=dk
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dk
+        touch ../data/raw/Articles/individual/batch_dk.done
+        
+[Thu Dec  4 23:53:49 2025]
+Finished job 62.
+69 of 134 steps (51%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dy
+    output: ../data/raw/Articles/individual/batch_dy.done
+    jobid: 106
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dy.done
+    wildcards: id=dy
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dy
+        touch ../data/raw/Articles/individual/batch_dy.done
+        
+[Thu Dec  4 23:53:55 2025]
+Finished job 91.
+70 of 134 steps (52%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:55 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dz
+    output: ../data/raw/Articles/individual/batch_dz.done
+    jobid: 107
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dz.done
+    wildcards: id=dz
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dz
+        touch ../data/raw/Articles/individual/batch_dz.done
+        
+[Thu Dec  4 23:53:57 2025]
+Finished job 92.
+71 of 134 steps (53%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:58 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cf
+    output: ../data/raw/Articles/individual/batch_cf.done
+    jobid: 61
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cf.done
+    wildcards: id=cf
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cf
+        touch ../data/raw/Articles/individual/batch_cf.done
+        
+[Thu Dec  4 23:53:59 2025]
+Finished job 106.
+72 of 134 steps (54%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:53:59 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_br
+    output: ../data/raw/Articles/individual/batch_br.done
+    jobid: 47
+    reason: Missing output files: ../data/raw/Articles/individual/batch_br.done
+    wildcards: id=br
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_br
+        touch ../data/raw/Articles/individual/batch_br.done
+        
+[Thu Dec  4 23:54:08 2025]
+Finished job 107.
+73 of 134 steps (54%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:08 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_en
+    output: ../data/raw/Articles/individual/batch_en.done
+    jobid: 121
+    reason: Missing output files: ../data/raw/Articles/individual/batch_en.done
+    wildcards: id=en
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_en
+        touch ../data/raw/Articles/individual/batch_en.done
+        
+[Thu Dec  4 23:54:10 2025]
+Finished job 61.
+74 of 134 steps (55%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:10 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bc
+    output: ../data/raw/Articles/individual/batch_bc.done
+    jobid: 32
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bc.done
+    wildcards: id=bc
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bc
+        touch ../data/raw/Articles/individual/batch_bc.done
+        
+[Thu Dec  4 23:54:11 2025]
+Finished job 47.
+75 of 134 steps (56%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:12 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cu
+    output: ../data/raw/Articles/individual/batch_cu.done
+    jobid: 76
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cu.done
+    wildcards: id=cu
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cu
+        touch ../data/raw/Articles/individual/batch_cu.done
+        
+[Thu Dec  4 23:54:21 2025]
+Finished job 121.
+76 of 134 steps (57%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:21 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cw
+    output: ../data/raw/Articles/individual/batch_cw.done
+    jobid: 78
+    reason: Missing output files: ../data/raw/Articles/individual/batch_cw.done
+    wildcards: id=cw
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cw
+        touch ../data/raw/Articles/individual/batch_cw.done
+        
+[Thu Dec  4 23:54:24 2025]
+Finished job 32.
+77 of 134 steps (57%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:24 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ej
+    output: ../data/raw/Articles/individual/batch_ej.done
+    jobid: 117
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ej.done
+    wildcards: id=ej
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ej
+        touch ../data/raw/Articles/individual/batch_ej.done
+        
+[Thu Dec  4 23:54:24 2025]
+Finished job 76.
+78 of 134 steps (58%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:24 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ao
+    output: ../data/raw/Articles/individual/batch_ao.done
+    jobid: 18
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ao.done
+    wildcards: id=ao
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ao
+        touch ../data/raw/Articles/individual/batch_ao.done
+        
+[Thu Dec  4 23:54:34 2025]
+Finished job 117.
+79 of 134 steps (59%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:34 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_al
+    output: ../data/raw/Articles/individual/batch_al.done
+    jobid: 15
+    reason: Missing output files: ../data/raw/Articles/individual/batch_al.done
+    wildcards: id=al
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_al
+        touch ../data/raw/Articles/individual/batch_al.done
+        
+[Thu Dec  4 23:54:35 2025]
+Finished job 78.
+80 of 134 steps (60%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:35 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dl
+    output: ../data/raw/Articles/individual/batch_dl.done
+    jobid: 93
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dl.done
+    wildcards: id=dl
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dl
+        touch ../data/raw/Articles/individual/batch_dl.done
+        
+[Thu Dec  4 23:54:38 2025]
+Finished job 18.
+81 of 134 steps (60%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:38 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ct
+    output: ../data/raw/Articles/individual/batch_ct.done
+    jobid: 75
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ct.done
+    wildcards: id=ct
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ct
+        touch ../data/raw/Articles/individual/batch_ct.done
+        
+[Thu Dec  4 23:54:44 2025]
+Finished job 93.
+82 of 134 steps (61%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:44 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bk
+    output: ../data/raw/Articles/individual/batch_bk.done
+    jobid: 40
+    reason: Missing output files: ../data/raw/Articles/individual/batch_bk.done
+    wildcards: id=bk
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bk
+        touch ../data/raw/Articles/individual/batch_bk.done
+        
+[Thu Dec  4 23:54:46 2025]
+Finished job 15.
+83 of 134 steps (62%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:46 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ds
+    output: ../data/raw/Articles/individual/batch_ds.done
+    jobid: 100
+    reason: Missing output files: ../data/raw/Articles/individual/batch_ds.done
+    wildcards: id=ds
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ds
+        touch ../data/raw/Articles/individual/batch_ds.done
+        
+[Thu Dec  4 23:54:49 2025]
+Finished job 75.
+84 of 134 steps (63%) done
+Select jobs to execute...
+
+[Thu Dec  4 23:54:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_dx
+    output: ../data/raw/Articles/individual/batch_dx.done
+    jobid: 105
+    reason: Missing output files: ../data/raw/Articles/individual/batch_dx.done
+    wildcards: id=dx
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dx
+        touch ../data/raw/Articles/individual/batch_dx.done
+        
+Terminating processes on user request, this might take some time.
+[Thu Dec  4 23:54:53 2025]
+Error in rule article_download:
+    jobid: 100
+    input: ../data/raw/PMIDs/ID_batches/batch_ds
+    output: ../data/raw/Articles/individual/batch_ds.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ds
+        touch ../data/raw/Articles/individual/batch_ds.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Dec  4 23:54:53 2025]
+[Thu Dec  4 23:54:53 2025]
+Error in rule article_download:
+    jobid: 105
+    input: ../data/raw/PMIDs/ID_batches/batch_dx
+    output: ../data/raw/Articles/individual/batch_dx.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_dx
+        touch ../data/raw/Articles/individual/batch_dx.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule article_download:
+    jobid: 40
+    input: ../data/raw/PMIDs/ID_batches/batch_bk
+    output: ../data/raw/Articles/individual/batch_bk.done
+    shell:
+        
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bk
+        touch ../data/raw/Articles/individual/batch_bk.done
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-12-04T234925.203434.snakemake.log

@@ -4,9 +4,13 @@ library(stopwords)
 library(tidytext)
 library(textstem)
 library(topicmodels)
+library(ldatuning)
+library(Rtsne)
 
 file_path <- "../data/clean/journal_data_cleaned.tsv"
 journal_tsv <- read_tsv(file_path)
+
+
 
 #####Title, Abstract and Mesh trimming
 
@@ -46,146 +50,43 @@ journal_tsv$Abstracts <- removeWords(journal_tsv$Abstracts, c(stopwords(language
 
 
 
-
-journal_corpus <- Corpus(VectorSource(journal_tsv$Title))
-
-journal_corpus <- tm_map(journal_corpus, removeWords, stopwords(language = "english", source = "smart"))
-
-journal_tsv$Title <- sapply(journal_corpus, as.character)
-
 #Reduce words to stem
 journal_tsv$Title <- lemmatize_strings(journal_tsv$Title)
 
-#Remove empty titles
-title_lengths <- nchar(trimws(journal_tsv$Title))
-journal_tsv <- journal_tsv[title_lengths > 0, ]
+journal_tsv$MESH_Terms <- lemmatize_strings(journal_tsv$MESH_Terms)
 
-#Remove NA's
-
-#journal_tsv <- na.omit(journal_tsv)
+journal_tsv$Abstracts <- lemmatize_strings(journal_tsv$Abstracts)
 
 
-write_tsv(journal_tsv, "journal_tsv_trimmed.tsv")
+
+
+
+#Write new trimmed TSV
+
+
+write_tsv(journal_tsv, "../data/clean/journal_tsv_trimmed.tsv")
 
 
 ####TITLE LDA
 
-#Create document term matrix
+#Create document term matrices
 
-journal_title_dtm <- DocumentTermMatrix(journal_tsv$Title)
-#journal_dtm <- removeSparseTerms(journal_dtm, 0.99)
-
-#Create journal_lda
-
-journal_title_lda <- LDA(journal_title_dtm, k= 2, control = list(seed = 1234))
-
-journal_topics <- tidy(journal_title_lda, matrix = "beta")
-
-journal_top_terms <- journal_topics %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 10) %>%
-  ungroup()
+journal_abstract_dtm <- DocumentTermMatrix(journal_tsv$Abstracts[!journal_tsv$Abstracts == "" & !is.na(journal_tsv$Abstracts)])
 
 
+#LDA Topic Modelling
 
-##MESH TRIMMING
+journal_abstract_lda <- LDA(journal_abstract_dtm, k = 5, control = list(seed=123))
+
+#Cluster Topic Modelling
+
+journal_abstract_ctm <- CTM(journal_abstract_dtm, k = 5, control = list(seed=123))
+
+journal-abstract_tsne <- Rtsne(journal_abstract_dtm, dims = 2, perplexity = 25, verbose = TRUE, max_iter = 1500)
 
 
 
-
-
-#stopwords
-journal_corpus_mesh <- Corpus(VectorSource(journal_tsv$MESH_Terms))
-
-journal_corpus_mesh <- tm_map(journal_corpus_mesh, removeWords, stopwords(language = "english",source = "smart"))
-
-journal_tsv$MESH_Terms <- sapply(journal_corpus_mesh, as.character)
-
-mesh_lengths <- nchar(trimws(journal_tsv$MESH_Terms))
-journal_tsv <- journal_tsv[mesh_lengths > 0, ]
-
-#journal_tsv <- na.omit(journal_tsv)
-
-journal_tsv$MESH_Terms <- lemmatize_strings(journal_tsv$MESH_Terms)
-
-
-journal_mesh_dtm <- DocumentTermMatrix(journal_tsv$MESH_Terms)
-
-
-
-journal_mesh_lda <- LDA(journal_mesh_dtm, k= 4, control = list(seed = 1234))
-
-journal_mesh_topics <- tidy(journal_mesh_lda, matrix = "beta")
-
-journal_mesh_top_terms <- journal_mesh_topics %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 10) %>%
-  ungroup()
-
-
-
-journal_mesh_top_terms %>%
-  mutate(term = reorder_within(term, beta, topic)) %>%
-  ggplot(aes(x = beta, y = term, fill = factor(topic))) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ topic, scales = "free") +
-  scale_y_reordered() +
-  labs(
-    title = "Top MESH Terms",
-    x = "Beta",
-    y = "MeSH Term"
-  ) +
-  theme_minimal()
-
-
-
-##Abstracts Trimming and LDA
-
-
-
-
-
-
-journal_tsv_abstracts_corpus <- Corpus(VectorSource(journal_tsv$Abstracts))
-journal_tsv_abstracts_corpus<- tm_map(journal_tsv_abstracts_corpus, removeWords, stopwords(language = "english", source = "smart"))
-
-journal_tsv$Abstracts <- sapply(journal_tsv_abstracts_corpus, as.character)
-
-
-journal_tsv$Abstracts <- lemmatize_strings(journal_tsv$Abstracts)
-
-journal_abstract_dtm <- DocumentTermMatrix(journal_tsv_abstracts_corpus)
-
-
-journal_abstract_lda <- LDA(journal_abstract_dtm, k= 2, control = list(seed = 1234))
-
-
-
-journal_mesh_topics <- tidy(journal_mesh_lda, matrix = "beta")
-
-journal_mesh_top_terms <- journal_mesh_topics %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 10) %>%
-  ungroup()
-
-
-
-journal_mesh_top_terms %>%
-  mutate(term = reorder_within(term, beta, topic)) %>%
-  ggplot(aes(x = beta, y = term, fill = factor(topic))) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ topic, scales = "free") +
-  scale_y_reordered() +
-  labs(
-    title = "Top MESH Terms",
-    x = "Beta",
-    y = "MeSH Term"
-  ) +
-  theme_minimal()
-
-###TRIMMING FUNCTION
-
-
-
-
-#stopwords
+ggplot(tsne_coords, aes(x = Dim1, y = Dim2, color = factor(dominant_topic))) +
+       geom_point(alpha = 0.7) +
+       labs(color = "Dominant Topic", title = paste("t-SNE Clustering of", ncol(doc_topics), "CTM Topics")) +
+       theme_minimal()

@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 34 of /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/Snakefile:
+Missing input files for rule journal_formatting:
+../data/raw/Articles/individual
