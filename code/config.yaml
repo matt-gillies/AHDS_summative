@@ -20,6 +20,7 @@ default-resources:
   cpus_per_task: 3
 
 jobs: 4
+cores: 3
 printshellcmds: True
 scheduler: greedy
 use-conda: True
