@@ -25,7 +25,7 @@ for i in $(seq 1 $article_count); do
       2>/dev/null > "../data/raw/Articles/individual/article-data-$pmid.xml"
 done
 
-sleep 1
+sleep 0.5
 
 
 

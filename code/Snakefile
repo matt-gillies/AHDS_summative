@@ -2,7 +2,7 @@ configfile: "config.yml"
 
 rule all:
     input:
-        "../data/clean/journal_data_cleaned.tsv"
+        "../data/clean/abstract_tsne_clustering.png"
 
 checkpoint list_download:
     output:
@@ -38,4 +38,14 @@ rule journal_formatting:
     shell:
         """
         Rscript 3-journal_formatting.R ../data/raw/Articles {output}
+        """
+
+rule journal_visualisation:
+    input:
+        "../data/clean/journal_data_cleaned.tsv"
+    output:
+        "../data/clean/abstract_tsne_clustering.png"
+    shell:
+        """
+        Rscript 4-journal_visualisation.R {output}
         """

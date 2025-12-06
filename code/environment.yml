@@ -16,4 +16,6 @@ dependencies:
   - r-tidytext
   - r-textstem
   - r-topicmodels
+  - r-stm
+  - r-Rtsne
   

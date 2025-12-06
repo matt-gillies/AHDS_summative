@@ -1,0 +1,1306 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count    min threads    max threads
+------------------  -------  -------------  -------------
+all                       1              1              1
+journal_formatting        1              1              1
+list_download             1              1              1
+total                     3              1              1
+
+Select jobs to execute...
+
+[Fri Dec  5 11:31:14 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 2
+    resources: tmpdir=/tmp
+Downstream jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh false
+        
+[Fri Dec  5 11:31:18 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Updating job journal_formatting.
+Select jobs to execute...
+
+[Fri Dec  5 11:31:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ap
+    output: ../data/raw/Articles/individual/batch_ap.done
+    jobid: 19
+    wildcards: id=ap
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ap
+        touch ../data/raw/Articles/individual/batch_ap.done
+        
+
+[Fri Dec  5 11:31:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ax
+    output: ../data/raw/Articles/individual/batch_ax.done
+    jobid: 27
+    wildcards: id=ax
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ax
+        touch ../data/raw/Articles/individual/batch_ax.done
+        
+
+[Fri Dec  5 11:31:19 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bm
+    output: ../data/raw/Articles/individual/batch_bm.done
+    jobid: 42
+    wildcards: id=bm
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bm
+        touch ../data/raw/Articles/individual/batch_bm.done
+        
+[Fri Dec  5 11:31:52 2025]
+Finished job 19.
+2 of 69 steps (3%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:31:52 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bd
+    output: ../data/raw/Articles/individual/batch_bd.done
+    jobid: 33
+    wildcards: id=bd
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bd
+        touch ../data/raw/Articles/individual/batch_bd.done
+        
+[Fri Dec  5 11:31:52 2025]
+Finished job 42.
+3 of 69 steps (4%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:31:52 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_av
+    output: ../data/raw/Articles/individual/batch_av.done
+    jobid: 25
+    wildcards: id=av
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_av
+        touch ../data/raw/Articles/individual/batch_av.done
+        
+[Fri Dec  5 11:31:53 2025]
+Finished job 27.
+4 of 69 steps (6%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:31:53 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bl
+    output: ../data/raw/Articles/individual/batch_bl.done
+    jobid: 41
+    wildcards: id=bl
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bl
+        touch ../data/raw/Articles/individual/batch_bl.done
+        
+[Fri Dec  5 11:32:23 2025]
+Finished job 41.
+5 of 69 steps (7%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:32:23 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_an
+    output: ../data/raw/Articles/individual/batch_an.done
+    jobid: 17
+    wildcards: id=an
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_an
+        touch ../data/raw/Articles/individual/batch_an.done
+        
+[Fri Dec  5 11:32:24 2025]
+Finished job 25.
+6 of 69 steps (9%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:32:24 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bt
+    output: ../data/raw/Articles/individual/batch_bt.done
+    jobid: 49
+    wildcards: id=bt
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bt
+        touch ../data/raw/Articles/individual/batch_bt.done
+        
+[Fri Dec  5 11:32:27 2025]
+Finished job 33.
+7 of 69 steps (10%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:32:27 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_af
+    output: ../data/raw/Articles/individual/batch_af.done
+    jobid: 9
+    wildcards: id=af
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_af
+        touch ../data/raw/Articles/individual/batch_af.done
+        
+[Fri Dec  5 11:32:51 2025]
+Finished job 49.
+8 of 69 steps (12%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:32:51 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cb
+    output: ../data/raw/Articles/individual/batch_cb.done
+    jobid: 57
+    wildcards: id=cb
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cb
+        touch ../data/raw/Articles/individual/batch_cb.done
+        
+[Fri Dec  5 11:32:55 2025]
+Finished job 17.
+9 of 69 steps (13%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:32:55 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ci
+    output: ../data/raw/Articles/individual/batch_ci.done
+    jobid: 64
+    wildcards: id=ci
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ci
+        touch ../data/raw/Articles/individual/batch_ci.done
+        
+[Fri Dec  5 11:33:00 2025]
+Finished job 9.
+10 of 69 steps (14%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:00 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cj
+    output: ../data/raw/Articles/individual/batch_cj.done
+    jobid: 65
+    wildcards: id=cj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cj
+        touch ../data/raw/Articles/individual/batch_cj.done
+        
+[Fri Dec  5 11:33:12 2025]
+Finished job 64.
+11 of 69 steps (16%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:12 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ca
+    output: ../data/raw/Articles/individual/batch_ca.done
+    jobid: 56
+    wildcards: id=ca
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ca
+        touch ../data/raw/Articles/individual/batch_ca.done
+        
+[Fri Dec  5 11:33:14 2025]
+Finished job 57.
+12 of 69 steps (17%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ag
+    output: ../data/raw/Articles/individual/batch_ag.done
+    jobid: 10
+    wildcards: id=ag
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ag
+        touch ../data/raw/Articles/individual/batch_ag.done
+        
+[Fri Dec  5 11:33:17 2025]
+Finished job 65.
+13 of 69 steps (19%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:17 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bs
+    output: ../data/raw/Articles/individual/batch_bs.done
+    jobid: 48
+    wildcards: id=bs
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bs
+        touch ../data/raw/Articles/individual/batch_bs.done
+        
+[Fri Dec  5 11:33:42 2025]
+Finished job 48.
+14 of 69 steps (20%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:42 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ao
+    output: ../data/raw/Articles/individual/batch_ao.done
+    jobid: 18
+    wildcards: id=ao
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ao
+        touch ../data/raw/Articles/individual/batch_ao.done
+        
+[Fri Dec  5 11:33:43 2025]
+Finished job 56.
+15 of 69 steps (22%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:43 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bk
+    output: ../data/raw/Articles/individual/batch_bk.done
+    jobid: 40
+    wildcards: id=bk
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bk
+        touch ../data/raw/Articles/individual/batch_bk.done
+        
+[Fri Dec  5 11:33:48 2025]
+Finished job 10.
+16 of 69 steps (23%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:33:48 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aw
+    output: ../data/raw/Articles/individual/batch_aw.done
+    jobid: 26
+    wildcards: id=aw
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aw
+        touch ../data/raw/Articles/individual/batch_aw.done
+        
+[Fri Dec  5 11:34:16 2025]
+Finished job 18.
+17 of 69 steps (25%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:16 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ab
+    output: ../data/raw/Articles/individual/batch_ab.done
+    jobid: 5
+    wildcards: id=ab
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ab
+        touch ../data/raw/Articles/individual/batch_ab.done
+        
+[Fri Dec  5 11:34:16 2025]
+Finished job 40.
+18 of 69 steps (26%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:16 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ar
+    output: ../data/raw/Articles/individual/batch_ar.done
+    jobid: 21
+    wildcards: id=ar
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ar
+        touch ../data/raw/Articles/individual/batch_ar.done
+        
+[Fri Dec  5 11:34:18 2025]
+Finished job 26.
+19 of 69 steps (28%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:18 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bu
+    output: ../data/raw/Articles/individual/batch_bu.done
+    jobid: 50
+    wildcards: id=bu
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bu
+        touch ../data/raw/Articles/individual/batch_bu.done
+        
+[Fri Dec  5 11:34:45 2025]
+Finished job 5.
+20 of 69 steps (29%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:45 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cc
+    output: ../data/raw/Articles/individual/batch_cc.done
+    jobid: 58
+    wildcards: id=cc
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cc
+        touch ../data/raw/Articles/individual/batch_cc.done
+        
+[Fri Dec  5 11:34:46 2025]
+Finished job 50.
+21 of 69 steps (30%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:46 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_be
+    output: ../data/raw/Articles/individual/batch_be.done
+    jobid: 34
+    wildcards: id=be
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_be
+        touch ../data/raw/Articles/individual/batch_be.done
+        
+[Fri Dec  5 11:34:50 2025]
+Finished job 21.
+22 of 69 steps (32%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:34:50 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ck
+    output: ../data/raw/Articles/individual/batch_ck.done
+    jobid: 66
+    wildcards: id=ck
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ck
+        touch ../data/raw/Articles/individual/batch_ck.done
+        
+[Fri Dec  5 11:35:07 2025]
+Finished job 66.
+23 of 69 steps (33%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:07 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bc
+    output: ../data/raw/Articles/individual/batch_bc.done
+    jobid: 32
+    wildcards: id=bc
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bc
+        touch ../data/raw/Articles/individual/batch_bc.done
+        
+[Fri Dec  5 11:35:14 2025]
+Finished job 58.
+24 of 69 steps (35%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aa
+    output: ../data/raw/Articles/individual/batch_aa.done
+    jobid: 4
+    wildcards: id=aa
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aa
+        touch ../data/raw/Articles/individual/batch_aa.done
+        
+[Fri Dec  5 11:35:16 2025]
+Finished job 34.
+25 of 69 steps (36%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:16 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_au
+    output: ../data/raw/Articles/individual/batch_au.done
+    jobid: 24
+    wildcards: id=au
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_au
+        touch ../data/raw/Articles/individual/batch_au.done
+        
+[Fri Dec  5 11:35:38 2025]
+Finished job 4.
+26 of 69 steps (38%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:38 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ah
+    output: ../data/raw/Articles/individual/batch_ah.done
+    jobid: 11
+    wildcards: id=ah
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ah
+        touch ../data/raw/Articles/individual/batch_ah.done
+        
+[Fri Dec  5 11:35:39 2025]
+Finished job 32.
+27 of 69 steps (39%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:39 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_am
+    output: ../data/raw/Articles/individual/batch_am.done
+    jobid: 16
+    wildcards: id=am
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_am
+        touch ../data/raw/Articles/individual/batch_am.done
+        
+[Fri Dec  5 11:35:47 2025]
+Finished job 24.
+28 of 69 steps (41%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:35:47 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bf
+    output: ../data/raw/Articles/individual/batch_bf.done
+    jobid: 35
+    wildcards: id=bf
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bf
+        touch ../data/raw/Articles/individual/batch_bf.done
+        
+[Fri Dec  5 11:36:09 2025]
+Finished job 16.
+29 of 69 steps (42%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:09 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ae
+    output: ../data/raw/Articles/individual/batch_ae.done
+    jobid: 8
+    wildcards: id=ae
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ae
+        touch ../data/raw/Articles/individual/batch_ae.done
+        
+[Fri Dec  5 11:36:10 2025]
+Finished job 11.
+30 of 69 steps (43%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:10 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bn
+    output: ../data/raw/Articles/individual/batch_bn.done
+    jobid: 43
+    wildcards: id=bn
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bn
+        touch ../data/raw/Articles/individual/batch_bn.done
+        
+[Fri Dec  5 11:36:15 2025]
+Finished job 35.
+31 of 69 steps (45%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:15 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ch
+    output: ../data/raw/Articles/individual/batch_ch.done
+    jobid: 63
+    wildcards: id=ch
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ch
+        touch ../data/raw/Articles/individual/batch_ch.done
+        
+[Fri Dec  5 11:36:38 2025]
+Finished job 63.
+32 of 69 steps (46%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:38 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cd
+    output: ../data/raw/Articles/individual/batch_cd.done
+    jobid: 59
+    wildcards: id=cd
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cd
+        touch ../data/raw/Articles/individual/batch_cd.done
+        
+[Fri Dec  5 11:36:43 2025]
+Finished job 43.
+33 of 69 steps (48%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:43 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bh
+    output: ../data/raw/Articles/individual/batch_bh.done
+    jobid: 37
+    wildcards: id=bh
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bh
+        touch ../data/raw/Articles/individual/batch_bh.done
+        
+[Fri Dec  5 11:36:44 2025]
+Finished job 8.
+34 of 69 steps (49%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:36:44 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cm
+    output: ../data/raw/Articles/individual/batch_cm.done
+    jobid: 68
+    wildcards: id=cm
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cm
+        touch ../data/raw/Articles/individual/batch_cm.done
+        
+[Fri Dec  5 11:37:00 2025]
+Finished job 68.
+35 of 69 steps (51%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:00 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aj
+    output: ../data/raw/Articles/individual/batch_aj.done
+    jobid: 13
+    wildcards: id=aj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aj
+        touch ../data/raw/Articles/individual/batch_aj.done
+        
+[Fri Dec  5 11:37:04 2025]
+Finished job 59.
+36 of 69 steps (52%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:04 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_az
+    output: ../data/raw/Articles/individual/batch_az.done
+    jobid: 29
+    wildcards: id=az
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_az
+        touch ../data/raw/Articles/individual/batch_az.done
+        
+[Fri Dec  5 11:37:14 2025]
+Finished job 37.
+37 of 69 steps (54%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bp
+    output: ../data/raw/Articles/individual/batch_bp.done
+    jobid: 45
+    wildcards: id=bp
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bp
+        touch ../data/raw/Articles/individual/batch_bp.done
+        
+[Fri Dec  5 11:37:32 2025]
+Finished job 13.
+38 of 69 steps (55%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:32 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cf
+    output: ../data/raw/Articles/individual/batch_cf.done
+    jobid: 61
+    wildcards: id=cf
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cf
+        touch ../data/raw/Articles/individual/batch_cf.done
+        
+[Fri Dec  5 11:37:36 2025]
+Finished job 29.
+39 of 69 steps (57%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:36 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cg
+    output: ../data/raw/Articles/individual/batch_cg.done
+    jobid: 62
+    wildcards: id=cg
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cg
+        touch ../data/raw/Articles/individual/batch_cg.done
+        
+[Fri Dec  5 11:37:44 2025]
+Finished job 45.
+40 of 69 steps (58%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:44 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bq
+    output: ../data/raw/Articles/individual/batch_bq.done
+    jobid: 46
+    wildcards: id=bq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bq
+        touch ../data/raw/Articles/individual/batch_bq.done
+        
+[Fri Dec  5 11:37:52 2025]
+Finished job 61.
+41 of 69 steps (59%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:52 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ba
+    output: ../data/raw/Articles/individual/batch_ba.done
+    jobid: 30
+    wildcards: id=ba
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ba
+        touch ../data/raw/Articles/individual/batch_ba.done
+        
+[Fri Dec  5 11:37:55 2025]
+Finished job 62.
+42 of 69 steps (61%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:37:55 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_as
+    output: ../data/raw/Articles/individual/batch_as.done
+    jobid: 22
+    wildcards: id=as
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_as
+        touch ../data/raw/Articles/individual/batch_as.done
+        
+[Fri Dec  5 11:38:15 2025]
+Finished job 46.
+43 of 69 steps (62%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:15 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bi
+    output: ../data/raw/Articles/individual/batch_bi.done
+    jobid: 38
+    wildcards: id=bi
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bi
+        touch ../data/raw/Articles/individual/batch_bi.done
+        
+[Fri Dec  5 11:38:26 2025]
+Finished job 30.
+44 of 69 steps (64%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:26 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_by
+    output: ../data/raw/Articles/individual/batch_by.done
+    jobid: 54
+    wildcards: id=by
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_by
+        touch ../data/raw/Articles/individual/batch_by.done
+        
+[Fri Dec  5 11:38:26 2025]
+Finished job 22.
+45 of 69 steps (65%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:26 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cn
+    output: ../data/raw/Articles/individual/batch_cn.done
+    jobid: 69
+    wildcards: id=cn
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cn
+        touch ../data/raw/Articles/individual/batch_cn.done
+        
+[Fri Dec  5 11:38:29 2025]
+Finished job 69.
+46 of 69 steps (67%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:29 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ac
+    output: ../data/raw/Articles/individual/batch_ac.done
+    jobid: 6
+    wildcards: id=ac
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ac
+        touch ../data/raw/Articles/individual/batch_ac.done
+        
+[Fri Dec  5 11:38:45 2025]
+Finished job 38.
+47 of 69 steps (68%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:45 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_at
+    output: ../data/raw/Articles/individual/batch_at.done
+    jobid: 23
+    wildcards: id=at
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_at
+        touch ../data/raw/Articles/individual/batch_at.done
+        
+[Fri Dec  5 11:38:48 2025]
+Finished job 54.
+48 of 69 steps (70%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:48 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bj
+    output: ../data/raw/Articles/individual/batch_bj.done
+    jobid: 39
+    wildcards: id=bj
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bj
+        touch ../data/raw/Articles/individual/batch_bj.done
+        
+[Fri Dec  5 11:38:55 2025]
+Finished job 6.
+49 of 69 steps (71%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:38:55 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bx
+    output: ../data/raw/Articles/individual/batch_bx.done
+    jobid: 53
+    wildcards: id=bx
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bx
+        touch ../data/raw/Articles/individual/batch_bx.done
+        
+[Fri Dec  5 11:39:14 2025]
+Finished job 23.
+50 of 69 steps (72%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ay
+    output: ../data/raw/Articles/individual/batch_ay.done
+    jobid: 28
+    wildcards: id=ay
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ay
+        touch ../data/raw/Articles/individual/batch_ay.done
+        
+[Fri Dec  5 11:39:14 2025]
+Finished job 39.
+51 of 69 steps (74%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:14 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bo
+    output: ../data/raw/Articles/individual/batch_bo.done
+    jobid: 44
+    wildcards: id=bo
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bo
+        touch ../data/raw/Articles/individual/batch_bo.done
+        
+[Fri Dec  5 11:39:25 2025]
+Finished job 53.
+52 of 69 steps (75%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:25 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ce
+    output: ../data/raw/Articles/individual/batch_ce.done
+    jobid: 60
+    wildcards: id=ce
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ce
+        touch ../data/raw/Articles/individual/batch_ce.done
+        
+[Fri Dec  5 11:39:45 2025]
+Finished job 60.
+53 of 69 steps (77%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:46 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aq
+    output: ../data/raw/Articles/individual/batch_aq.done
+    jobid: 20
+    wildcards: id=aq
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aq
+        touch ../data/raw/Articles/individual/batch_aq.done
+        
+[Fri Dec  5 11:39:47 2025]
+Finished job 44.
+54 of 69 steps (78%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:47 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bg
+    output: ../data/raw/Articles/individual/batch_bg.done
+    jobid: 36
+    wildcards: id=bg
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bg
+        touch ../data/raw/Articles/individual/batch_bg.done
+        
+[Fri Dec  5 11:39:50 2025]
+Finished job 28.
+55 of 69 steps (80%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:39:50 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bw
+    output: ../data/raw/Articles/individual/batch_bw.done
+    jobid: 52
+    wildcards: id=bw
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bw
+        touch ../data/raw/Articles/individual/batch_bw.done
+        
+[Fri Dec  5 11:40:16 2025]
+Finished job 52.
+56 of 69 steps (81%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:16 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ak
+    output: ../data/raw/Articles/individual/batch_ak.done
+    jobid: 14
+    wildcards: id=ak
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ak
+        touch ../data/raw/Articles/individual/batch_ak.done
+        
+[Fri Dec  5 11:40:17 2025]
+Finished job 20.
+57 of 69 steps (83%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:17 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ai
+    output: ../data/raw/Articles/individual/batch_ai.done
+    jobid: 12
+    wildcards: id=ai
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ai
+        touch ../data/raw/Articles/individual/batch_ai.done
+        
+[Fri Dec  5 11:40:18 2025]
+Finished job 36.
+58 of 69 steps (84%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:18 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_cl
+    output: ../data/raw/Articles/individual/batch_cl.done
+    jobid: 67
+    wildcards: id=cl
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_cl
+        touch ../data/raw/Articles/individual/batch_cl.done
+        
+[Fri Dec  5 11:40:36 2025]
+Finished job 67.
+59 of 69 steps (86%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:36 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bv
+    output: ../data/raw/Articles/individual/batch_bv.done
+    jobid: 51
+    wildcards: id=bv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bv
+        touch ../data/raw/Articles/individual/batch_bv.done
+        
+[Fri Dec  5 11:40:48 2025]
+Finished job 14.
+60 of 69 steps (87%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:48 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bz
+    output: ../data/raw/Articles/individual/batch_bz.done
+    jobid: 55
+    wildcards: id=bz
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bz
+        touch ../data/raw/Articles/individual/batch_bz.done
+        
+[Fri Dec  5 11:40:49 2025]
+Finished job 12.
+61 of 69 steps (88%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:40:49 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_bb
+    output: ../data/raw/Articles/individual/batch_bb.done
+    jobid: 31
+    wildcards: id=bb
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_bb
+        touch ../data/raw/Articles/individual/batch_bb.done
+        
+[Fri Dec  5 11:41:02 2025]
+Finished job 51.
+62 of 69 steps (90%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:41:02 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_br
+    output: ../data/raw/Articles/individual/batch_br.done
+    jobid: 47
+    wildcards: id=br
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_br
+        touch ../data/raw/Articles/individual/batch_br.done
+        
+[Fri Dec  5 11:41:13 2025]
+Finished job 55.
+63 of 69 steps (91%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:41:13 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_al
+    output: ../data/raw/Articles/individual/batch_al.done
+    jobid: 15
+    wildcards: id=al
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_al
+        touch ../data/raw/Articles/individual/batch_al.done
+        
+[Fri Dec  5 11:41:21 2025]
+Finished job 31.
+64 of 69 steps (93%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:41:21 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_ad
+    output: ../data/raw/Articles/individual/batch_ad.done
+    jobid: 7
+    wildcards: id=ad
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_ad
+        touch ../data/raw/Articles/individual/batch_ad.done
+        
+[Fri Dec  5 11:41:32 2025]
+Finished job 47.
+65 of 69 steps (94%) done
+[Fri Dec  5 11:41:41 2025]
+Finished job 15.
+66 of 69 steps (96%) done
+[Fri Dec  5 11:41:50 2025]
+Finished job 7.
+67 of 69 steps (97%) done
+Select jobs to execute...
+
+[Fri Dec  5 11:41:51 2025]
+rule journal_formatting:
+    input: ../data/raw/PMIDs/ID_batches, ../data/raw/Articles/individual/batch_aa.done, ../data/raw/Articles/individual/batch_ab.done, ../data/raw/Articles/individual/batch_ac.done, ../data/raw/Articles/individual/batch_ad.done, ../data/raw/Articles/individual/batch_ae.done, ../data/raw/Articles/individual/batch_af.done, ../data/raw/Articles/individual/batch_ag.done, ../data/raw/Articles/individual/batch_ah.done, ../data/raw/Articles/individual/batch_ai.done, ../data/raw/Articles/individual/batch_aj.done, ../data/raw/Articles/individual/batch_ak.done, ../data/raw/Articles/individual/batch_al.done, ../data/raw/Articles/individual/batch_am.done, ../data/raw/Articles/individual/batch_an.done, ../data/raw/Articles/individual/batch_ao.done, ../data/raw/Articles/individual/batch_ap.done, ../data/raw/Articles/individual/batch_aq.done, ../data/raw/Articles/individual/batch_ar.done, ../data/raw/Articles/individual/batch_as.done, ../data/raw/Articles/individual/batch_at.done, ../data/raw/Articles/individual/batch_au.done, ../data/raw/Articles/individual/batch_av.done, ../data/raw/Articles/individual/batch_aw.done, ../data/raw/Articles/individual/batch_ax.done, ../data/raw/Articles/individual/batch_ay.done, ../data/raw/Articles/individual/batch_az.done, ../data/raw/Articles/individual/batch_ba.done, ../data/raw/Articles/individual/batch_bb.done, ../data/raw/Articles/individual/batch_bc.done, ../data/raw/Articles/individual/batch_bd.done, ../data/raw/Articles/individual/batch_be.done, ../data/raw/Articles/individual/batch_bf.done, ../data/raw/Articles/individual/batch_bg.done, ../data/raw/Articles/individual/batch_bh.done, ../data/raw/Articles/individual/batch_bi.done, ../data/raw/Articles/individual/batch_bj.done, ../data/raw/Articles/individual/batch_bk.done, ../data/raw/Articles/individual/batch_bl.done, ../data/raw/Articles/individual/batch_bm.done, ../data/raw/Articles/individual/batch_bn.done, ../data/raw/Articles/individual/batch_bo.done, ../data/raw/Articles/individual/batch_bp.done, ../data/raw/Articles/individual/batch_bq.done, ../data/raw/Articles/individual/batch_br.done, ../data/raw/Articles/individual/batch_bs.done, ../data/raw/Articles/individual/batch_bt.done, ../data/raw/Articles/individual/batch_bu.done, ../data/raw/Articles/individual/batch_bv.done, ../data/raw/Articles/individual/batch_bw.done, ../data/raw/Articles/individual/batch_bx.done, ../data/raw/Articles/individual/batch_by.done, ../data/raw/Articles/individual/batch_bz.done, ../data/raw/Articles/individual/batch_ca.done, ../data/raw/Articles/individual/batch_cb.done, ../data/raw/Articles/individual/batch_cc.done, ../data/raw/Articles/individual/batch_cd.done, ../data/raw/Articles/individual/batch_ce.done, ../data/raw/Articles/individual/batch_cf.done, ../data/raw/Articles/individual/batch_cg.done, ../data/raw/Articles/individual/batch_ch.done, ../data/raw/Articles/individual/batch_ci.done, ../data/raw/Articles/individual/batch_cj.done, ../data/raw/Articles/individual/batch_ck.done, ../data/raw/Articles/individual/batch_cl.done, ../data/raw/Articles/individual/batch_cm.done, ../data/raw/Articles/individual/batch_cn.done
+    output: ../data/clean/journal_data_cleaned.tsv
+    jobid: 1
+    resources: tmpdir=/tmp
+
+
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+[Fri Dec  5 11:41:53 2025]
+Error in rule journal_formatting:
+    jobid: 1
+    output: ../data/clean/journal_data_cleaned.tsv
+    shell:
+        
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/.snakemake/log/2025-12-05T113112.753567.snakemake.log
