@@ -64,7 +64,7 @@ journal_tsv$Abstract <- lemmatize_strings(journal_tsv$Abstract)
 
 journal_tsv_stm_prep <- textProcessor(documents = journal_tsv$Abstract, stem = FALSE, removestopwords = FALSE)
 
-#topicnumber <- searchK(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = c(3:6), data = journal_tsv_stm_prep$meta)
+#topicnumber <- searchK(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = c(3,10), data = journal_tsv_stm_prep$meta)
 
 journal_abstract_stm <- stm(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = 6, data = journal_tsv_stm_prep$meta, init.type = "Spectral", seed = 123)
 

@@ -1,0 +1,93 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+journal_formatting           1              1              1
+journal_visualisation        1              1              1
+list_download                1              1              1
+total                        4              1              1
+
+Select jobs to execute...
+
+[Sat Dec  6 13:43:39 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 3
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh true
+        
+[Sat Dec  6 13:43:41 2025]
+Finished job 3.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Sat Dec  6 13:43:41 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aa
+    output: ../data/raw/Articles/individual/batch_aa.done
+    jobid: 5
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aa.done
+    wildcards: id=aa
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aa
+        touch ../data/raw/Articles/individual/batch_aa.done
+        
+[Sat Dec  6 13:43:44 2025]
+Finished job 5.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Sat Dec  6 13:43:44 2025]
+rule journal_formatting:
+    input: ../data/raw/PMIDs/ID_batches, ../data/raw/Articles/individual/batch_aa.done
+    output: ../data/clean/journal_data_cleaned.tsv
+    jobid: 2
+    reason: Missing output files: ../data/clean/journal_data_cleaned.tsv; Input files updated by another job: ../data/raw/Articles/individual/batch_aa.done
+    resources: tmpdir=/tmp
+
+
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+[Sat Dec  6 13:43:47 2025]
+Finished job 2.
+3 of 5 steps (60%) done
+Select jobs to execute...
+
+[Sat Dec  6 13:43:47 2025]
+rule journal_visualisation:
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../data/clean/abstract_tsne_clustering.png
+    jobid: 1
+    reason: Missing output files: ../data/clean/abstract_tsne_clustering.png; Input files updated by another job: ../data/clean/journal_data_cleaned.tsv
+    resources: tmpdir=/tmp
+
+
+        Rscript 4-journal_visualisation.R ../data/clean/abstract_tsne_clustering.png
+        
+[Sat Dec  6 13:43:52 2025]
+Error in rule journal_visualisation:
+    jobid: 1
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../data/clean/abstract_tsne_clustering.png
+    shell:
+        
+        Rscript 4-journal_visualisation.R ../data/clean/abstract_tsne_clustering.png
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-12-06T134337.446873.snakemake.log
