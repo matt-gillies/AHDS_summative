@@ -78,7 +78,7 @@ abstract_stm_thetas <- jitter(journal_abstract_stm$theta, amount = 1e-8 )
 
 
 set.seed(123)
-abstract_tsne <- Rtsne(as.matrix(abstract_stm_thetas), dims = 2, perplexity = 25, verbose = TRUE, pca = TRUE)
+abstract_tsne <- Rtsne(as.matrix(abstract_stm_thetas), dims = 2, perplexity = 5, verbose = TRUE, pca = TRUE)
 
 dominant_topic <- apply(abstract_stm_thetas, 1, which.max)
 

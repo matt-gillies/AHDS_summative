@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+journal_formatting           1              1              1
+journal_visualisation        1              1              1
+list_download                1              1              1
+total                        4              1              1
+
+Select jobs to execute...
+
+[Sun Dec  7 12:53:05 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 3
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh true
+        
+[Sun Dec  7 12:53:06 2025]
+Finished job 3.
+1 of 4 steps (25%) done
+MissingInputException in rule journal_formatting in file /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/Snakefile, line 29:
+Missing input files for rule journal_formatting:
+    output: ../data/clean/journal_data_cleaned.tsv
+    affected files:
+        ../data/raw/Articles/individual/batch_aa.done

@@ -1,0 +1,78 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+article_download             1              1              1
+journal_formatting           1              1              1
+journal_visualisation        1              1              1
+total                        4              1              1
+
+Select jobs to execute...
+
+[Sun Dec  7 12:54:05 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aa
+    output: ../data/raw/Articles/individual/batch_aa.done
+    jobid: 4
+    reason: Missing output files: ../data/raw/Articles/individual/batch_aa.done
+    wildcards: id=aa
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aa
+        touch ../data/raw/Articles/individual/batch_aa.done
+        
+[Sun Dec  7 12:54:13 2025]
+Finished job 4.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Sun Dec  7 12:54:13 2025]
+rule journal_formatting:
+    input: ../data/raw/PMIDs/ID_batches, ../data/raw/Articles/individual/batch_aa.done
+    output: ../data/clean/journal_data_cleaned.tsv
+    jobid: 2
+    reason: Missing output files: ../data/clean/journal_data_cleaned.tsv; Input files updated by another job: ../data/raw/Articles/individual/batch_aa.done
+    resources: tmpdir=/tmp
+
+
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+[Sun Dec  7 12:54:16 2025]
+Finished job 2.
+2 of 4 steps (50%) done
+Select jobs to execute...
+
+[Sun Dec  7 12:54:16 2025]
+rule journal_visualisation:
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../data/clean/abstract_tsne_clustering.png
+    jobid: 1
+    reason: Missing output files: ../data/clean/abstract_tsne_clustering.png; Input files updated by another job: ../data/clean/journal_data_cleaned.tsv
+    resources: tmpdir=/tmp
+
+
+        Rscript 4-journal_visualisation.R ../data/clean/abstract_tsne_clustering.png
+        
+[Sun Dec  7 12:54:22 2025]
+Finished job 1.
+3 of 4 steps (75%) done
+Select jobs to execute...
+
+[Sun Dec  7 12:54:22 2025]
+localrule all:
+    input: ../data/clean/abstract_tsne_clustering.png
+    jobid: 0
+    reason: Input files updated by another job: ../data/clean/abstract_tsne_clustering.png
+    resources: tmpdir=/tmp
+
+[Sun Dec  7 12:54:22 2025]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: .snakemake/log/2025-12-07T125403.547107.snakemake.log

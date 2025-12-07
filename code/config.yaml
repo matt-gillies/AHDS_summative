@@ -14,7 +14,7 @@ default-resources:
   - time="30:00"
   - ntasks=1
   - nodes=3
-jobs: 1
+jobs: 10
 printshellcmds: True
 scheduler: greedy
 use-conda: True
