@@ -1,31 +1,28 @@
-
+#!/usr/bin/env bash
 batch=$1
 
-
-#Download from PubMed using ID list
-#https://unix.stackexchange.com/questions/243134/curl-download-multiple-files-with-brace-syntax
-
+# Build comma-separated PMID list
 pmids=$(tr '\n' ',' < "$batch" | sed 's/,$//')
 
+# Download batch XML
+outfile="../data/raw/Articles/artbatches/article-$(basename $batch).xml"
+curl -fsS "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmids}&rettype=abstract&retmode=xml" \
+  --output "$outfile"
 
-curl "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmids}" > ../data/raw/Articles/artbatches/article-$(basename $batch).xml
+# Count articles
+article_count=$(xmllint --xpath "count(//PubmedArticle)" "$outfile" 2>/dev/null)
 
-
-#Count number of articles https://stackoverflow.com/questions/35669280/how-can-i-count-the-number-of-elements-in-an-xml-document-using-xmlstarlet-in-ba
-
-article_count=$(xmlstarlet sel --nonet --nocatalog -t -v "count(//PubmedArticle)" \
-  "../data/raw/Articles/artbatches/article-$(basename $batch).xml" 2>/dev/null)
-
+# Split into individual files
 for i in $(seq 1 $article_count); do
-    pmid=$(xmlstarlet sel --nonet --nocatalog -t -v "(//PubmedArticle)[$i]//PMID" \
-      "../data/raw/Articles/artbatches/article-$(basename $batch).xml" 2>/dev/null)
+    pmid=$(xmllint --xpath "(//PubmedArticle)[$i]//PMID/text()" "$outfile" 2>/dev/null)
 
-    xmlstarlet sel --nonet --nocatalog -t -c "(//PubmedArticle)[$i]" \
-      "../data/raw/Articles/artbatches/article-$(basename $batch).xml" \
-      2>/dev/null > "../data/raw/Articles/individual/article-data-$pmid.xml"
+    if [ -z "$pmid" ]; then
+        echo "Skipping empty PMID at index $i"
+        continue
+    fi
+
+    xmllint --xpath "(//PubmedArticle)[$i]" "$outfile" 2>/dev/null \
+      > "../data/raw/Articles/individual/article-data-${pmid}.xml"
 done
 
 sleep 0.5
-
-
-
