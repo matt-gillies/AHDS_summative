@@ -8,7 +8,7 @@ library(stm)
 library(Rtsne)
 
 
-searchK <- commandArgs(trailingOnly = TRUE)[2]
+SearchK <- commandArgs(trailingOnly = TRUE)[2]
 topicnumber <- as.numeric(commandArgs(trailingOnly=TRUE))[3]
 test <- commandArgs(trailingOnly = TRUE)[4]
 
@@ -119,6 +119,7 @@ ggplot(tsne_plot_frame, aes(x = X, y = Y, color = Topic)) +
   theme_minimal() +
   ggtitle("t-SNE Clustering of STM Topics")
 dev.off()
+
 
 
 
