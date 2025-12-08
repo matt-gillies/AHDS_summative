@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+journal_formatting           1              1              1
+journal_visualisation        1              1              1
+list_download                1              1              1
+total                        4              1              1
+
+Select jobs to execute...
+
+[Sun Dec  7 23:54:51 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 3
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh True "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22gaming+disorder%22+OR+%22smartphone+addiction%22+OR+%22internet+addiction%22+OR+%22social+media+addiction%22&retmax=10000"
+        
+[Sun Dec  7 23:54:52 2025]
+Error in rule list_download:
+    jobid: 3
+    output: ../data/raw/PMIDs/ID_batches
+    shell:
+        
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh True "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22gaming+disorder%22+OR+%22smartphone+addiction%22+OR+%22internet+addiction%22+OR+%22social+media+addiction%22&retmax=10000"
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job list_download since they might be corrupted:
+../data/raw/PMIDs/ID_batches
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-12-07T235447.894159.snakemake.log

@@ -9,7 +9,6 @@ dependencies:
   - graphviz
   - curl
   - xmllint
-  - xmlstarlet
   - r-base=4.3
   - r-tidyverse
   - r-ggplot2

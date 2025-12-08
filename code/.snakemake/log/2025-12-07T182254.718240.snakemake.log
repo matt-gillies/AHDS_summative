@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+journal_visualisation        1              1              1
+total                        2              1              1
+
+Select jobs to execute...
+
+[Sun Dec  7 18:22:58 2025]
+rule journal_visualisation:
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../results/abstract_tsne_clustering.png
+    jobid: 1
+    reason: Missing output files: ../results/abstract_tsne_clustering.png
+    resources: tmpdir=/tmp
+
+
+        mkdir "../results"
+        Rscript 4-journal_visualisation.R ../results/abstract_tsne_clustering.png
+        
+[Sun Dec  7 18:22:58 2025]
+Error in rule journal_visualisation:
+    jobid: 1
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../results/abstract_tsne_clustering.png
+    shell:
+        
+        mkdir "../results"
+        Rscript 4-journal_visualisation.R ../results/abstract_tsne_clustering.png
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-12-07T182254.718240.snakemake.log

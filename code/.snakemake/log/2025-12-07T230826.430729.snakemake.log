@@ -1,0 +1,3 @@
+NameError in line 51 of /mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/Snakefile:
+name 'SearchK' is not defined
+  File "/mnt/c/Users/mattg/summative/ADHS_assessment_code_2725312/code/Snakefile", line 51, in <module>

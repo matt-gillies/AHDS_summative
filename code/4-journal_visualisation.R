@@ -8,6 +8,19 @@ library(stm)
 library(Rtsne)
 
 
+searchK <- commandArgs(trailingOnly = TRUE)[2]
+topicnumber <- as.numeric(commandArgs(trailingOnly=TRUE))[3]
+test <- commandArgs(trailingOnly = TRUE)[4]
+
+if (test == "True") {
+  Perplex <- 5
+  } else if (test == "False"){
+    Perplex <- 25
+  }
+
+
+
+
 
 
 
@@ -52,21 +65,22 @@ journal_tsv$Abstract <- lemmatize_strings(journal_tsv$Abstract)
 
 
 
-#Write new trimmed TSV
-
-
-#write_tsv(journal_tsv, "../data/clean/journal_tsv_trimmed.tsv")
-
-
 
 
 #Structural Topic Modelling
 
 journal_tsv_stm_prep <- textProcessor(documents = journal_tsv$Abstract, stem = FALSE, removestopwords = FALSE)
 
-#topicnumber <- searchK(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = c(3,10), data = journal_tsv_stm_prep$meta)
+if (SearchK == "True"){
+  topic_test <- searchK(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = c(3:4), data = journal_tsv_stm_prep$meta)
+  topic_number <- (3:4)[which.max(topic_test$coherence)]
+}
+  
+journal_abstract_stm <- stm(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = topicnumber, data = journal_tsv_stm_prep$meta, init.type = "Spectral", seed = 123)
 
-journal_abstract_stm <- stm(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = 6, data = journal_tsv_stm_prep$meta, init.type = "Spectral", seed = 123)
+
+
+journal_abstract_stm <- stm(journal_tsv_stm_prep$documents, journal_tsv_stm_prep$vocab, K = topicnumber, data = journal_tsv_stm_prep$meta, init.type = "Spectral", seed = 123)
 
 
 #TSNE cluster
@@ -78,7 +92,9 @@ abstract_stm_thetas <- jitter(journal_abstract_stm$theta, amount = 1e-8 )
 
 
 set.seed(123)
-abstract_tsne <- Rtsne(as.matrix(abstract_stm_thetas), dims = 2, perplexity = 5, verbose = TRUE, pca = TRUE)
+
+
+abstract_tsne <- Rtsne(as.matrix(abstract_stm_thetas), dims = 2, perplexity = Perplex, verbose = TRUE, pca = TRUE)
 
 dominant_topic <- apply(abstract_stm_thetas, 1, which.max)
 
@@ -96,7 +112,7 @@ topic_labels <- paste0("Topic ", seq_along(top_terms_score), ": ", top_terms_sco
 levels(tsne_plot_frame$Topic) <- topic_labels
 
 
-png(filename = "../data/clean/abstract_tsne_clustering.png", width = 1000, height = 425)
+png(filename = "../results/abstract_tsne_clustering.png", width = 1000, height = 425)
 
 ggplot(tsne_plot_frame, aes(x = X, y = Y, color = Topic)) +
   geom_point(alpha = 0.7, size = 0.5) +

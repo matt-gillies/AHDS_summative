@@ -1,0 +1,95 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+journal_formatting           1              1              1
+journal_visualisation        1              1              1
+list_download                1              1              1
+total                        4              1              1
+
+Select jobs to execute...
+
+[Mon Dec  8 00:08:48 2025]
+checkpoint list_download:
+    output: ../data/raw/PMIDs/ID_batches
+    jobid: 3
+    reason: Missing output files: ../data/raw/PMIDs/ID_batches
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+
+        mkdir -p ../data/raw/PMIDs
+        bash 1-ID_list_downl.sh "True" "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22gaming+disorder%22+OR+%22smartphone+addiction%22+OR+%22internet+addiction%22+OR+%22social+media+addiction%22&retmax=10000"
+        
+[Mon Dec  8 00:08:49 2025]
+Finished job 3.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Mon Dec  8 00:08:50 2025]
+rule article_download:
+    input: ../data/raw/PMIDs/ID_batches/batch_aa
+    output: ../data/raw/Articles/artbatches/batch_aa.done
+    jobid: 5
+    reason: Missing output files: ../data/raw/Articles/artbatches/batch_aa.done
+    wildcards: id=aa
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../data/raw/Articles/artbatches
+        mkdir -p ../data/raw/Articles/individual
+        bash 2-journal_downl.sh ../data/raw/PMIDs/ID_batches/batch_aa
+        touch ../data/raw/Articles/artbatches/batch_aa.done
+        
+[Mon Dec  8 00:08:54 2025]
+Finished job 5.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Mon Dec  8 00:08:54 2025]
+rule journal_formatting:
+    input: ../data/raw/PMIDs/ID_batches, ../data/raw/Articles/artbatches/batch_aa.done
+    output: ../data/clean/journal_data_cleaned.tsv
+    jobid: 2
+    reason: Missing output files: ../data/clean/journal_data_cleaned.tsv; Input files updated by another job: ../data/raw/Articles/artbatches/batch_aa.done
+    resources: tmpdir=/tmp
+
+
+        Rscript 3-journal_formatting.R ../data/raw/Articles ../data/clean/journal_data_cleaned.tsv
+        
+[Mon Dec  8 00:08:58 2025]
+Finished job 2.
+3 of 5 steps (60%) done
+Select jobs to execute...
+
+[Mon Dec  8 00:08:58 2025]
+rule journal_visualisation:
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../results/abstract_tsne_clustering.png
+    jobid: 1
+    reason: Missing output files: ../results/abstract_tsne_clustering.png; Input files updated by another job: ../data/clean/journal_data_cleaned.tsv
+    resources: tmpdir=/tmp
+
+
+        mkdir -p ../results
+        Rscript 4-journal_visualisation.R ../results/abstract_tsne_clustering.png False 6 5
+        
+[Mon Dec  8 00:09:05 2025]
+Error in rule journal_visualisation:
+    jobid: 1
+    input: ../data/clean/journal_data_cleaned.tsv
+    output: ../results/abstract_tsne_clustering.png
+    shell:
+        
+        mkdir -p ../results
+        Rscript 4-journal_visualisation.R ../results/abstract_tsne_clustering.png False 6 5
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-12-08T000844.698286.snakemake.log

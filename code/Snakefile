@@ -2,7 +2,7 @@ configfile: "pipeline_params.yml"
 
 rule all:
     input:
-        "../data/clean/abstract_tsne_clustering.png"
+        "../results/abstract_tsne_clustering.png"
 
 checkpoint list_download:
     output:
@@ -10,14 +10,14 @@ checkpoint list_download:
     shell:
         """
         mkdir -p ../data/raw/PMIDs
-        bash 1-ID_list_downl.sh {config[test]}
+        bash 1-ID_list_downl.sh "{config[test]}" "{config[url]}"
         """
 
 rule article_download:
     input:
         "../data/raw/PMIDs/ID_batches/batch_{id}"
     output:
-        "../data/raw/Articles/individual/batch_{id}.done"
+        "../data/raw/Articles/artbatches/batch_{id}.done"
     shell:
         """
         mkdir -p ../data/raw/Articles/artbatches
@@ -30,11 +30,12 @@ rule journal_formatting:
     input:
         "../data/raw/PMIDs/ID_batches",
         lambda wildcards: expand(
-            "../data/raw/Articles/individual/batch_{id}.done",
+            "../data/raw/Articles/artbatches/batch_{id}.done",
             id=glob_wildcards("../data/raw/PMIDs/ID_batches/batch_{id}").id
         )
     output:
         "../data/clean/journal_data_cleaned.tsv"
+    
     shell:
         """
         Rscript 3-journal_formatting.R ../data/raw/Articles {output}
@@ -44,8 +45,9 @@ rule journal_visualisation:
     input:
         "../data/clean/journal_data_cleaned.tsv"
     output:
-        "../data/clean/abstract_tsne_clustering.png"
+        "../results/abstract_tsne_clustering.png"
     shell:
         """
-        Rscript 4-journal_visualisation.R {output}
+        mkdir -p ../results
+        Rscript 4-journal_visualisation.R {output} {config[searchK]} {config[topicnumber]} "{config[test]}"
         """
